@@ -1,0 +1,40 @@
+{
+    "name": "1stdibs-front-end-quiz",
+    "version": "1.0.0",
+    "description": "1stdibs Front-end quiz based on React, Flux, Node",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "dev": "nodemon --watch server --verbose server/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/1stdibs/front-end-quiz.git"
+    },
+    "keywords": [
+        "1stdibs",
+        "1stdibs.com",
+        "React",
+        "Node",
+        "Front-end quiz"
+    ],
+    "author": "1stdibs",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/1stdibs/front-end-quiz/issues"
+    },
+    "homepage": "https://github.com/1stdibs/front-end-quiz#readme",
+    "dependencies": {
+        "express": "^4.16.3",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-scripts": "1.1.4"
+    },
+    "devDependencies": {
+        "nodemon": "^1.17.5"
+    },
+    "proxy": "http://localhost:3001"
+}
