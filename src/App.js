@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Browse from "./Browse";
 
 class App extends Component {
   render() {
-    return <h1 className="App-welcome">Welcome!</h1>;
+    return (
+      <Router>
+        <Route exact path="/" component={Browse} />
+      </Router>
+    );
   }
 }
 
