@@ -1,5 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const cachedItems = require('../data/items.json');
+//TODO: fix duplicate code corsOptions
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200
+};
 
 const itemRouter = express.Router();
 
@@ -9,7 +15,7 @@ const getItem = function (itemId) {
     }) || {};
 };
 
-itemRouter.get('/:id', (req, res) => {
+itemRouter.get('/:id', cors(corsOptions), (req, res) => {
     const id = req.params.id;
     const item = getItem(id);
     res.status(200).json(item);

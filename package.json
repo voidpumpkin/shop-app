@@ -30,6 +30,7 @@
     },
     "homepage": "https://github.com/1stdibs/front-end-quiz#readme",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.16.3",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
