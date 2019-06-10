@@ -3,7 +3,7 @@ const cors = require('cors');
 const cachedItems = require('../data/items.json');
 //TODO: fix duplicate code corsOptions
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000","http://192.168.56.1:3000"],
   optionsSuccessStatus: 200
 };
 
