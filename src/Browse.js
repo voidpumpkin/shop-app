@@ -16,7 +16,6 @@ class Browse extends Component {
       );
   }
   render() {
-    console.log(this.state)
     if (this.state.shopItems) {
       return (
         <ul>
