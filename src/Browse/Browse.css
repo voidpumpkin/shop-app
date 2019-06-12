@@ -1,7 +1,25 @@
 .browse-container {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.browse-header-wrapper {
+  background-color: #e9eaec;
+  border-image: linear-gradient(180deg, #c3a758, #6b521e) stretch;
+  border-style: solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.browse-header {
+  font-size: 72px;
+  color: #C8AA6E;
+  background-clip: text;
+  background: -webkit-linear-gradient(#daba64, #584417);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

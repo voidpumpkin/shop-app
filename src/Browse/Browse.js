@@ -40,8 +40,16 @@ class Browse extends Component {
     if (this.state.shopItems) {
       return (
         <div id="browse-container" className="browse-container">
+          <header id="browse-header-wrapper" className="browse-header-wrapper">
+            <div id="browse-header" className="browse-header">
+              Browse
+            </div>
+          </header>
           <ItemCardList items={this.state.shopItems} />
-          <Pagination pageCount={this.state.pageCount} currentPage={this.state.currentPage} />
+          <Pagination
+            pageCount={this.state.pageCount}
+            currentPage={this.state.currentPage}
+          />
         </div>
       );
     } else {
