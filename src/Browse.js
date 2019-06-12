@@ -11,9 +11,11 @@ class Browse extends Component {
       itemLimit: 10
     };
   }
+
   componentDidMount() {
     this.fetchPageShopItems();
   }
+
   fetchPageShopItems(page = 1) {
     let start = this.state.itemLimit * (page - 1);
     fetch(
@@ -33,11 +35,7 @@ class Browse extends Component {
     if (this.state.shopItems) {
       return (
         <div>
-          <ul>
-            {this.state.shopItems.map(item => (
-              <img src={item.image} alt={item.id} key={item.id} />
-            ))}
-          </ul>
+          <ItemList items={this.state.shopItems} />
           <ul>
             {/* FIXME: Will overflow with too many pages, separate component needed */}
             {[...Array(this.state.pageCount)].map((e, i) => (
@@ -57,6 +55,16 @@ class Browse extends Component {
       return <h1>Loading...</h1>;
     }
   }
+}
+
+function ItemList({ items }) {
+  return (
+    <ul>
+      {items.map(item => (
+        <img src={item.image} alt={item.id} key={item.id} />
+      ))}
+    </ul>
+  );
 }
 
 export default Browse;
