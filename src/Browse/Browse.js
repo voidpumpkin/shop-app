@@ -41,7 +41,7 @@ class Browse extends Component {
       return (
         <div id="browse-container" className="browse-container">
           <ItemCardList items={this.state.shopItems} />
-          <Pagination currentPage={this.state.currentPage} />
+          <Pagination pageCount={this.state.pageCount} currentPage={this.state.currentPage} />
         </div>
       );
     } else {

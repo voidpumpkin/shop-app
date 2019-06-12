@@ -1,12 +1,14 @@
 import React from "react";
 import "./Pagination.css";
 
-function Pagination({ currentPage }) {
+function Pagination({ pageCount, currentPage }) {
   return (
     <div id="pagination" className="pagination">
       <a
         id="previuos-page-button"
-        className="pagination-page-button"
+        className={`pagination-page-button ${
+          currentPage - 1 <= 0 ? "isDisabled" : ""
+        }`}
         href={`?page=${currentPage - 1}`}
       >
         &lt;
@@ -20,7 +22,9 @@ function Pagination({ currentPage }) {
       </a>
       <a
         id="next-page-button"
-        className="pagination-page-button"
+        className={`pagination-page-button ${
+          currentPage >= pageCount ? "isDisabled" : ""
+        }`}
         href={`?page=${Number(currentPage) + 1}`}
       >
         &gt;
