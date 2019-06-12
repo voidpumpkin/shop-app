@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import queryString from "query-string";
+import ItemList from "./ItemList";
+import Pagination from "./Pagination";
 
 class Browse extends Component {
   constructor(props) {
@@ -47,33 +49,4 @@ class Browse extends Component {
   }
 }
 
-function ItemList({ items }) {
-  return (
-    <ul>
-      {items.map(item => (
-        <img src={item.image} alt={item.id} key={item.id} />
-      ))}
-    </ul>
-  );
-}
-
-function Pagination({ currentPage }) {
-  return (
-    <ul>
-      <a href={`?page=${currentPage - 1}`} key={currentPage - 1}>
-        &lt;
-      </a>
-      <a href={`?page=${currentPage}`} key={currentPage}>
-        {currentPage}
-      </a>
-      <a
-        href={`?page=${Number(currentPage) + 1}`}
-        key={Number(currentPage) + 1}
-        disabled
-      >
-        &gt;
-      </a>
-    </ul>
-  );
-}
 export default Browse;
