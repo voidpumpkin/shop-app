@@ -38,13 +38,13 @@ class Browse extends Component {
   render() {
     if (this.state.shopItems) {
       return (
-        <div>
+        <div id="browse-container">
           <ItemList items={this.state.shopItems} />
           <Pagination currentPage={this.state.currentPage} />
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <h1 id="loader">Loading...</h1>;
     }
   }
 }
