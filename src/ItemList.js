@@ -2,11 +2,16 @@ import React from "react";
 
 function ItemList({ items }) {
   return (
-    <ul>
+    <div id="item-list">
       {items.map(item => (
-        <img src={item.image} alt={item.id} key={item.id} />
+        <img
+          id={`item-${item.id}-image`}
+          src={item.image}
+          alt={`item ${item.id}`}
+          key={item.id}
+        />
       ))}
-    </ul>
+    </div>
   );
 }
 
