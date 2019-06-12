@@ -38,7 +38,7 @@ class Browse extends Component {
       return (
         <div>
           <ItemList items={this.state.shopItems} />
-          <Pagination pageCount={this.state.pageCount} />
+          <Pagination currentPage={this.state.currentPage} />
         </div>
       );
     } else {
@@ -57,15 +57,22 @@ function ItemList({ items }) {
   );
 }
 
-function Pagination({ pageCount }) {
+function Pagination({ currentPage }) {
   return (
     <ul>
-      {/* FIXME: Will overflow with too many pages, separate component needed */}
-      {[...Array(pageCount)].map((e, i) => (
-        <a href={`?page=${i + 1}`} key={i + 1}>
-          {i + 1}
-        </a>
-      ))}
+      <a href={`?page=${currentPage - 1}`} key={currentPage - 1}>
+        &lt;
+      </a>
+      <a href={`?page=${currentPage}`} key={currentPage}>
+        {currentPage}
+      </a>
+      <a
+        href={`?page=${Number(currentPage) + 1}`}
+        key={Number(currentPage) + 1}
+        disabled
+      >
+        &gt;
+      </a>
     </ul>
   );
 }
