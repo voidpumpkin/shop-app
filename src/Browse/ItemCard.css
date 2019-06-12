@@ -7,6 +7,7 @@
   border-image-slice: 1;
   border-width: 2px;
   color: #836e3b;
+  text-decoration: none;
 }
 .item-image {
   max-width: 240px;

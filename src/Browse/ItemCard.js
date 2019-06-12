@@ -3,7 +3,11 @@ import "./ItemCard.css";
 
 function ItemCard({ item }) {
   return (
-    <div id={`item-${item.id}-card`} className="item-card">
+    <a
+      id={`item-${item.id}-card`}
+      className="item-card"
+      href={`/item/${item.id}`}
+    >
       <img
         id={`item-${item.id}-image`}
         className="item-image"
@@ -17,7 +21,7 @@ function ItemCard({ item }) {
       <div id="item-price" className="item-price">
         {item.price ? item.price.amounts.EUR : "Price Upon Request"}
       </div>
-    </div>
+    </a>
   );
 }
 
