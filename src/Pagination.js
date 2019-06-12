@@ -2,21 +2,30 @@ import React from "react";
 
 function Pagination({ currentPage }) {
   return (
-    <ul>
-      <a href={`?page=${currentPage - 1}`} key={currentPage - 1}>
+    <div id="pagination">
+      <a
+        id="previuos-page-button"
+        href={`?page=${currentPage - 1}`}
+        key={currentPage - 1}
+      >
         &lt;
       </a>
-      <a href={`?page=${currentPage}`} key={currentPage}>
+      <a
+        id="current-page-button"
+        href={`?page=${currentPage}`}
+        key={currentPage}
+      >
         {currentPage}
       </a>
       <a
+        id="next-page-button"
         href={`?page=${Number(currentPage) + 1}`}
         key={Number(currentPage) + 1}
         disabled
       >
         &gt;
       </a>
-    </ul>
+    </div>
   );
 }
 
