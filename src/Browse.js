@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import queryString from "query-string";
 
 class Browse extends Component {
   constructor(props) {
     super(props);
+    const queryStringValues = queryString.parse(this.props.location.search);
     this.state = {
       shopItems: null,
       totalShopItems: null,
       pageCount: null,
-      currentPage: 1,
+      currentPage: queryStringValues.page ? queryStringValues.page : 1,
       itemLimit: 10
     };
   }
@@ -16,8 +18,9 @@ class Browse extends Component {
     this.fetchPageShopItems();
   }
 
-  fetchPageShopItems(page = 1) {
-    let start = this.state.itemLimit * (page - 1);
+  fetchPageShopItems() {
+    console.log(this.state.currentPage);
+    let start = this.state.itemLimit * (this.state.currentPage - 1);
     fetch(
       `http://localhost:3001/browse?start=${start}&limit=${this.state.itemLimit}`
     )
@@ -39,14 +42,9 @@ class Browse extends Component {
           <ul>
             {/* FIXME: Will overflow with too many pages, separate component needed */}
             {[...Array(this.state.pageCount)].map((e, i) => (
-              <button
-                onClick={event =>
-                  this.fetchPageShopItems(event.target.innerText)
-                }
-                key={i + 1}
-              >
+              <a href={`?page=${i + 1}`} key={i + 1}>
                 {i + 1}
-              </button>
+              </a>
             ))}
           </ul>
         </div>
