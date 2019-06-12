@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import queryString from "query-string";
-import ItemList from "./ItemList";
+import ItemCardList from "./ItemCardList";
 import Pagination from "./Pagination";
+import "./Browse.css";
 
 class Browse extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Browse extends Component {
       totalShopItems: null,
       pageCount: null,
       currentPage: queryStringValues.page ? queryStringValues.page : 1,
-      itemLimit: 10
+      itemLimit: 30
     };
   }
 
@@ -38,8 +39,8 @@ class Browse extends Component {
   render() {
     if (this.state.shopItems) {
       return (
-        <div id="browse-container">
-          <ItemList items={this.state.shopItems} />
+        <div id="browse-container" className="browse-container">
+          <ItemCardList items={this.state.shopItems} />
           <Pagination currentPage={this.state.currentPage} />
         </div>
       );
