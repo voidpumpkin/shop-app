@@ -19,7 +19,6 @@ class Browse extends Component {
   }
 
   fetchPageShopItems() {
-    console.log(this.state.currentPage);
     let start = this.state.itemLimit * (this.state.currentPage - 1);
     fetch(
       `http://localhost:3001/browse?start=${start}&limit=${this.state.itemLimit}`
@@ -39,14 +38,7 @@ class Browse extends Component {
       return (
         <div>
           <ItemList items={this.state.shopItems} />
-          <ul>
-            {/* FIXME: Will overflow with too many pages, separate component needed */}
-            {[...Array(this.state.pageCount)].map((e, i) => (
-              <a href={`?page=${i + 1}`} key={i + 1}>
-                {i + 1}
-              </a>
-            ))}
-          </ul>
+          <Pagination pageCount={this.state.pageCount} />
         </div>
       );
     } else {
@@ -65,4 +57,16 @@ function ItemList({ items }) {
   );
 }
 
+function Pagination({ pageCount }) {
+  return (
+    <ul>
+      {/* FIXME: Will overflow with too many pages, separate component needed */}
+      {[...Array(pageCount)].map((e, i) => (
+        <a href={`?page=${i + 1}`} key={i + 1}>
+          {i + 1}
+        </a>
+      ))}
+    </ul>
+  );
+}
 export default Browse;
