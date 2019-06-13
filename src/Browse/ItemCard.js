@@ -15,7 +15,7 @@ function ItemCard({ item }) {
         alt={`item ${item.id}`}
         key={item.id}
       />
-      <div id="item-title" className="item-card-title">
+      <div id="item-title" className="item-card-title gold-text">
         {item.title}
       </div>
       <div id="item-price" className="item-card-price">
