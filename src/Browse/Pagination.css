@@ -3,10 +3,6 @@
   font-size: 36px;
   padding: 10px;
 
-  border-image: linear-gradient(180deg, #c3a758, #6b521e) stretch;
-  border-style: solid;
-  border-image-slice: 1;
-  border-width: 2px;
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -21,11 +17,6 @@
   background-color: #ffffff;
   margin: 3px;
   padding: 0 5px 0 5px;
-
-  border-image: linear-gradient(180deg, #c3a758, #6b521e) stretch;
-  border-style: solid;
-  border-image-slice: 1;
-  border-width: 2px;
 }
 .pagination-page-button:hover {
   transform: scale(1.1);

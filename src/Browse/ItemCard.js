@@ -5,7 +5,7 @@ function ItemCard({ item }) {
   return (
     <a
       id={`item-${item.id}-card`}
-      className="item-card"
+      className="item-card gold-border"
       href={`/item/${item.id}`}
     >
       <img

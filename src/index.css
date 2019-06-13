@@ -6,3 +6,16 @@ body {
 #root {
   height: 100%;
 }
+.gold-text{
+  color: #C8AA6E;
+  background-clip: text;
+  background: -webkit-linear-gradient(#daba64, #584417);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gold-border {
+  border-image: linear-gradient(180deg, #c3a758, #6b521e) stretch;
+  border-style: solid;
+  border-image-slice: 1;
+  border-width: 2px;
+}

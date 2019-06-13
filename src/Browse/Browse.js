@@ -40,8 +40,11 @@ class Browse extends Component {
     if (this.state.shopItems) {
       return (
         <div id="browse-container" className="browse-container">
-          <header id="browse-header-wrapper" className="browse-header-wrapper">
-            <div id="browse-header" className="browse-header">
+          <header
+            id="browse-header-wrapper"
+            className="browse-header-wrapper gold-border"
+          >
+            <div id="browse-header" className="browse-header gold-text">
               Browse
             </div>
           </header>

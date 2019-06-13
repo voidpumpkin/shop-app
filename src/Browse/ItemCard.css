@@ -2,10 +2,6 @@
   max-width: 240px;
   background-color: #e9eaec;
   margin: 2%;
-  border-image: linear-gradient(180deg,#c3a758,#6b521e) stretch;
-  border-style: solid;
-  border-image-slice: 1;
-  border-width: 2px;
   color: #836e3b;
   text-decoration: none;
 }
