@@ -1,4 +1,6 @@
 .pagination {
+  min-height: 10%;
+
   background-color: #e9eaec;
   font-size: 36px;
   padding: 10px;

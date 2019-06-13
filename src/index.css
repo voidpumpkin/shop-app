@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   background-color: #ffffff;
   height: 100vh;
+  color: #47412b;
 }
 #root {
   height: 100%;
