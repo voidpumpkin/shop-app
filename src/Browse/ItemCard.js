@@ -10,15 +10,15 @@ function ItemCard({ item }) {
     >
       <img
         id={`item-${item.id}-image`}
-        className="item-image"
+        className="item-card-image"
         src={item.image}
         alt={`item ${item.id}`}
         key={item.id}
       />
-      <div id="item-title" className="item-title">
+      <div id="item-title" className="item-card-title">
         {item.title}
       </div>
-      <div id="item-price" className="item-price">
+      <div id="item-price" className="item-card-price">
         {item.price ? item.price.amounts.EUR : "Price Upon Request"}
       </div>
     </a>
