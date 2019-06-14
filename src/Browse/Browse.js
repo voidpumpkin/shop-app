@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import queryString from "query-string";
 import ItemCardList from "./ItemCardList";
 import Pagination from "./Pagination";
+import Loader from "../SharedComponents/Loader";
 import "./Browse.css";
 
 class Browse extends Component {
@@ -37,27 +38,27 @@ class Browse extends Component {
   }
 
   render() {
-    if (this.state.shopItems) {
-      return (
-        <div id="browse-container" className="browse-container">
-          <header
-            id="browse-header-wrapper"
-            className="browse-header-wrapper gold-border"
-          >
-            <div id="browse-header" className="browse-header gold-text">
-              Browse
-            </div>
-          </header>
+    return (
+      <div id="browse-container" className="browse-container">
+        <header
+          id="browse-header-wrapper"
+          className="browse-header-wrapper gold-border"
+        >
+          <div id="browse-header" className="browse-header gold-text">
+            Browse
+          </div>
+        </header>
+        {!!this.state.shopItems ? (
           <ItemCardList items={this.state.shopItems} />
-          <Pagination
-            pageCount={this.state.pageCount}
-            currentPage={this.state.currentPage}
-          />
-        </div>
-      );
-    } else {
-      return <h1 id="loader">Loading...</h1>;
-    }
+        ) : (
+          <Loader />
+        )}
+        <Pagination
+          pageCount={this.state.pageCount}
+          currentPage={this.state.currentPage}
+        />
+      </div>
+    );
   }
 }
 

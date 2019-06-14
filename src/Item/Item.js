@@ -6,6 +6,7 @@ import Price from "./Price";
 import Measurements from "./Measurements";
 import Description from "./Description";
 import Creators from "./Creators";
+import Loader from "../SharedComponents/Loader";
 
 class Item extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class Item extends Component {
         </div>
       );
     } else {
-      return <h1 id="loader">Loading...</h1>;
+      return <Loader />;
     }
   }
 }
