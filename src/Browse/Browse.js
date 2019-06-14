@@ -13,7 +13,7 @@ class Browse extends Component {
       totalShopItems: null,
       pageCount: null,
       currentPage: queryStringValues.page ? queryStringValues.page : 1,
-      itemLimit: 30
+      itemLimit: 50
     };
   }
 

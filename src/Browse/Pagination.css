@@ -1,9 +1,9 @@
 .browse-pagination {
-  min-height: 10%;
+  width: 100%;
 
   background-color: #e9eaec;
   font-size: 36px;
-  padding: 10px;
+  padding: 10px 0 10px 0;
 
   border-left: none;
   border-right: none;
@@ -19,6 +19,7 @@
   background-color: #ffffff;
   margin: 3px;
   padding: 0 5px 0 5px;
+  max-height: 50px;
 }
 .browse-pagination-page-button:hover {
   transform: scale(1.1);

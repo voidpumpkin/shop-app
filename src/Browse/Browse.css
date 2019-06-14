@@ -3,9 +3,10 @@
   height: 100%;
   text-align: center;
   flex-direction: column;
+  background-color: #e9eaec;
 }
 .browse-header-wrapper {
-  min-height: 10%;
+  width: 100%;
   background-color: #e9eaec;
   border-top: none;
   border-left: none;
