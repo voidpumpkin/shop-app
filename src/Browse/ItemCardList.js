@@ -5,8 +5,8 @@ import "./ItemCardList.css";
 function ItemCardList({ items }) {
   return (
     <div id="item-list" className="browse-item-card-list">
-      {items.map((item, i) => (
-        <ItemCard item={item} key={i} />
+      {items.map(item => (
+        <ItemCard item={item} key={item.id} />
       ))}
     </div>
   );
