@@ -28,11 +28,11 @@ class Browse extends Component {
     )
       .then(response => response.json())
       .then(data =>
-        this.setState({
+        this.setState(state => ({
           shopItems: data.items,
           totalShopItems: data.totalItems,
-          pageCount: Math.ceil(data.totalItems / this.state.itemLimit)
-        })
+          pageCount: Math.ceil(data.totalItems / state.itemLimit)
+        }))
       );
   }
 
