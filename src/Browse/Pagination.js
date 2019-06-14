@@ -7,7 +7,7 @@ function Pagination({ pageCount, currentPage }) {
       <a
         id="previuos-page-button"
         className={`browse-pagination-page-button gold-border ${
-          currentPage - 1 <= 0 ? "isDisabled" : ""
+          currentPage - 1 <= 0 ? "browse-disabled" : ""
         }`}
         href={`?page=${currentPage - 1}`}
       >
