@@ -1,4 +1,4 @@
-.pagination {
+.browse-pagination {
   min-height: 10%;
 
   background-color: #e9eaec;
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
 }
-.pagination-page-button {
+.browse-pagination-page-button {
   user-select: none;
   text-decoration: none;
   color: #c8aa6e;
@@ -20,16 +20,16 @@
   margin: 3px;
   padding: 0 5px 0 5px;
 }
-.pagination-page-button:hover {
+.browse-pagination-page-button:hover {
   transform: scale(1.1);
   background-image: linear-gradient(180deg,#c3a758,#6b521e);
   color: #FFFFFF;
   background-color: #c3a758;
 }
-.pagination-current-page-button {
+.browse-pagination-current-page-button {
   pointer-events: none;
 }
-.isDisabled {
+.browse-disabled {
   opacity: 0.5;
   pointer-events: none;
 }

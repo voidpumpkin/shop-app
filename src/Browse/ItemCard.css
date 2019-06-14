@@ -1,24 +1,24 @@
-.item-card {
+.browse-item-card {
   max-width: 240px;
   background-color: #e9eaec;
   margin: 2%;
   color: #47412b;
   text-decoration: none;
 }
-.item-card:hover {
+.browse-item-card:hover {
   transform: scale(1.1);
 }
-.item-card-image {
+.browse-item-card-image {
   max-width: 240px;
   max-height: 240px;
 }
-.item-card-title {
+.browse-item-card-title {
   flex: 1 1 auto;
   margin: 2%;
   font-size: 16px;
   font-weight: bold;
 }
-.item-card-price {
+.browse-item-card-price {
   font-size: 16px;
   margin: 0% 2% 2% 2%;
 }
