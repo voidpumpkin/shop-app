@@ -10,6 +10,8 @@ class Browse extends Component {
     super(props);
     const queryStringValues = queryString.parse(this.props.location.search);
     this.state = {
+      isLoading: true,
+      error: null,
       shopItems: null,
       totalShopItems: null,
       pageCount: null,
@@ -27,38 +29,50 @@ class Browse extends Component {
     fetch(
       `http://localhost:3001/browse?start=${start}&limit=${this.state.itemLimit}`
     )
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
       .then(data =>
         this.setState(state => ({
           shopItems: data.items,
           totalShopItems: data.totalItems,
-          pageCount: Math.ceil(data.totalItems / state.itemLimit)
+          pageCount: Math.ceil(data.totalItems / state.itemLimit),
+          isLoading: false
         }))
-      );
+      )
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   render() {
-    return (
-      <div id="browse-container" className="browse-container">
-        <header
-          id="browse-header-wrapper"
-          className="browse-header-wrapper gold-border"
-        >
-          <div id="browse-header" className="browse-header gold-text">
-            Browse
-          </div>
-        </header>
-        {!!this.state.shopItems ? (
-          <ItemCardList items={this.state.shopItems} />
-        ) : (
-          <Loader />
-        )}
-        <Pagination
-          pageCount={this.state.pageCount}
-          currentPage={this.state.currentPage}
-        />
-      </div>
-    );
+    if (this.state.error) {
+      return <p>{this.state.error.message}</p>;
+    } else {
+      return (
+        <div id="browse-container" className="browse-container">
+          <header
+            id="browse-header-wrapper"
+            className="browse-header-wrapper gold-border"
+          >
+            <div id="browse-header" className="browse-header gold-text">
+              Browse
+            </div>
+          </header>
+          {this.state.isLoading ? (
+            <Loader />
+          ) : (
+            <ItemCardList items={this.state.shopItems} />
+          )}
+          <Pagination
+            pageCount={this.state.pageCount}
+            currentPage={this.state.currentPage}
+          />
+        </div>
+      );
+    }
   }
 }
 
