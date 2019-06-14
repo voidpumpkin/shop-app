@@ -11,7 +11,10 @@ import Loader from "../SharedComponents/Loader";
 class Item extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLoading: true,
+      error: null
+    };
   }
 
   componentDidMount() {
@@ -20,12 +23,25 @@ class Item extends Component {
 
   fetchPageShopItems() {
     fetch(`http://localhost:3001/item/${this.props.match.params.id}`)
-      .then(response => response.json())
-      .then(data => this.setState({ ...data }));
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else if (response.status === 404) {
+          throw new Error("Item not found");
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
+      .then(data => this.setState({ ...data, isLoading: false }))
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   render() {
-    if (Object.keys(this.state).length !== 0) {
+    if (this.state.error) {
+      return <p>{this.state.error.message}</p>;
+    } else if (this.state.isLoading) {
+      return <Loader />;
+    } else {
       return (
         <div id="item-container" className="item-container">
           <Image src={this.state.image} />
@@ -38,8 +54,6 @@ class Item extends Component {
           </div>
         </div>
       );
-    } else {
-      return <Loader />;
     }
   }
 }
