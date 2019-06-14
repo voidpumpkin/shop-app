@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-// import queryString from "query-string";
 import "./Item.css";
+import Image from "./Image";
+import Title from "./Title";
+import Price from "./Price";
+import Measurements from "./Measurements";
+import Description from "./Description";
+import Creators from "./Creators";
 
 class Item extends Component {
   constructor(props) {
     super(props);
-    // const queryStringValues = queryString.parse(this.props.location.search);
     this.state = {};
   }
 
@@ -23,38 +27,13 @@ class Item extends Component {
     if (Object.keys(this.state).length !== 0) {
       return (
         <div id="item-container" className="item-container">
-          <div id="image-wrapper" className="item-image-wrapper gold-border">
-            <img
-              id="item-image"
-              className="item-image"
-              src={this.state.image}
-              alt={"item"}
-            />
-          </div>
+          <Image src={this.state.image} />
           <div id="item-details" className="item-details">
-            <div id="item-title" className="item-title gold-text">
-              {this.state.title}
-            </div>
-            <div id="item-price" className="item-price gold-text">
-              {this.state.price
-                ? this.state.price.amounts.EUR
-                : "Price Upon Request"}
-            </div>
-            <div id="item-measurements" className="item-measurements">
-              <b>Measurements:</b>
-              <br />
-              {this.state.measurements.display}
-            </div>
-            <div id="item-description" className="item-description">
-              <b>Description:</b>
-              <br />
-              {this.state.description}
-            </div>
-            <div id="item-creator" className="item-creator">
-              <b>Creators:</b>
-              <br />
-              {this.state.creators}
-            </div>
+            <Title text={this.state.title} />
+            <Price price={this.state.price} />
+            <Measurements text={this.state.measurements.display} />
+            <Description text={this.state.description} />
+            <Creators text={this.state.creators} />
           </div>
         </div>
       );

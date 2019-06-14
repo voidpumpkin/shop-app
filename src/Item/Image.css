@@ -1,0 +1,13 @@
+.item-image-wrapper {
+  min-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 30%;
+  margin: 1%;
+}
+.item-image {
+  width: 100%;
+  height: auto;
+  max-width: 480px;
+}

@@ -5,40 +5,8 @@
   flex-wrap: wrap;
   font-size: 18px;
 }
-.item-image-wrapper {
-  min-width: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 0 30%;
-  margin: 1%;
-}
-.item-image {
-  width: 100%;
-  height: auto;
-  max-width: 480px;
-}
 .item-details {
   padding: 10px;
   text-align: left;
   flex: 10 1 360px;
-}
-.item-title {
-  color: #c8aa6e;
-  font-weight: bold;
-  font-size: 68px;
-  margin: 5px auto 5px auto;
-}
-.item-price {
-  margin: 5px auto 5px auto;
-  font-size: 48px;
-}
-.item-measurements {
-  font-size: 24px;
-}
-.item-description {
-  margin: 5px auto 5px auto;
-}
-.item-creators {
-  margin: 5px auto 5px auto;
 }
