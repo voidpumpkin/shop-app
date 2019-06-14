@@ -23,7 +23,7 @@ class Item extends Component {
     if (Object.keys(this.state).length !== 0) {
       return (
         <div id="item-container" className="item-container">
-          <div id="image-wrapper" className="image-wrapper gold-border">
+          <div id="image-wrapper" className="item-image-wrapper gold-border">
             <img
               id="item-image"
               className="item-image"
@@ -31,14 +31,11 @@ class Item extends Component {
               alt={"item"}
             />
           </div>
-          <div
-            id="title-price-wrapper"
-            className="title-price-wrapper gold-border"
-          >
-            <div id="item-title" className="item-title">
+          <div id="item-details" className="item-details">
+            <div id="item-title" className="item-title gold-text">
               {this.state.title}
             </div>
-            <div id="item-price" className="item-price">
+            <div id="item-price" className="item-price gold-text">
               {this.state.price
                 ? this.state.price.amounts.EUR
                 : "Price Upon Request"}
@@ -48,16 +45,14 @@ class Item extends Component {
               <br />
               {this.state.measurements.display}
             </div>
-          </div>
-          <div
-            id="description-creator-wrapper"
-            className="description-creator-wrapper gold-border"
-          >
             <div id="item-description" className="item-description">
+              <b>Description:</b>
+              <br />
               {this.state.description}
             </div>
             <div id="item-creator" className="item-creator">
-              <b>Creators: </b>
+              <b>Creators:</b>
+              <br />
               {this.state.creators}
             </div>
           </div>
