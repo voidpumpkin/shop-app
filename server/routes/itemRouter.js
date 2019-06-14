@@ -18,7 +18,11 @@ const getItem = function (itemId) {
 itemRouter.get('/:id', cors(corsOptions), (req, res) => {
     const id = req.params.id;
     const item = getItem(id);
-    res.status(200).json(item);
+    if (Object.keys(item).length == 0) {
+      res.status(404).json(item);;
+    } else {
+      res.status(200).json(item);
+    }
 });
 
 module.exports = itemRouter;
