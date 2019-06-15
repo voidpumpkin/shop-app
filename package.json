@@ -28,7 +28,7 @@
     "bugs": {
         "url": "https://github.com/1stdibs/front-end-quiz/issues"
     },
-    "homepage": "https://github.com/1stdibs/front-end-quiz#readme",
+    "homepage": "https://julys321-shop-app.herokuapp.com",
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.16.3",
