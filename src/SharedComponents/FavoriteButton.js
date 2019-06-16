@@ -10,9 +10,10 @@ class FavoriteButton extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(e) {
     e.preventDefault();
-    this.setState({ isFavorite: !this.state.isFavorite });
+    this.setState({ isFavorite: !this.isFavorite() });
     fetch(
       `${packagejson.proxy}/item/${this.props.itemId}?favorite=${!this.props
         .isFavorite}`,
@@ -21,6 +22,7 @@ class FavoriteButton extends Component {
       }
     );
   }
+
   isFavorite() {
     if (this.state.isFavorite === null) {
       return this.props.isFavorite;
@@ -28,6 +30,7 @@ class FavoriteButton extends Component {
       return this.state.isFavorite;
     }
   }
+
   render() {
     return (
       <div
