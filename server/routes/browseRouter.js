@@ -1,22 +1,17 @@
 const express = require("express");
-const cors = require("cors");
-const cachedItems = require("../data/items.json");
 const fs = require("fs");
 
 const browseRouter = express.Router();
 
 const getItems = function(payload) {
+  let fileRawData = fs.readFileSync("./server/data/items.json");
+  let items = JSON.parse(fileRawData);
   const start = Number.parseInt(payload.start) || 0;
   const limit = Number.parseInt(payload.limit) || 9;
-  const items = cachedItems.slice(start, start + limit);
-  let fileRawData = fs.readFileSync("./server/data/favoriteItemIds.json");
-  let favoriteItemIds = JSON.parse(fileRawData);
-  items.map(
-    e => (e.isFavorite = favoriteItemIds.indexOf(e.id) == -1 ? false : true)
-  );
+  items = items.slice(start, start + limit);
   return {
     items: items,
-    totalItems: cachedItems.length
+    totalItems: items.length
   };
 };
 
