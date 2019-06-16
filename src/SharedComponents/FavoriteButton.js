@@ -35,7 +35,7 @@ class FavoriteButton extends Component {
     return (
       <div
         id="favorite-button-wrapper"
-        className="favorite-button-wrapper"
+        className={"favorite-button-wrapper " + this.props.className}
         style={this.props.style}
         onClick={this.handleClick}
       >

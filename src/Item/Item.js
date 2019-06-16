@@ -7,6 +7,7 @@ import Measurements from "./Measurements";
 import Description from "./Description";
 import Creators from "./Creators";
 import Loader from "../SharedComponents/Loader";
+import FavoriteButton from "../SharedComponents/FavoriteButton";
 import packagejson from "../../package.json";
 
 class Item extends Component {
@@ -46,6 +47,11 @@ class Item extends Component {
       return (
         <div id="item-container" className="item-container">
           <Image src={this.state.image} />
+          <FavoriteButton
+            itemId={this.state.id}
+            isFavorite={this.state.isFavorite}
+            className="item-favorite-button"
+          />
           <div id="item-details" className="item-details">
             <Title text={this.state.title} />
             <Price price={this.state.price} />

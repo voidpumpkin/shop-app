@@ -10,3 +10,13 @@
   text-align: left;
   flex: 10 1 360px;
 }
+.item-favorite-button {
+  margin: 2%;
+  top: 25px;
+  left: 25px;
+  transform: scale(2.5);
+}
+.item-favorite-button:hover {
+  transform: scale(3.5);
+}
+
