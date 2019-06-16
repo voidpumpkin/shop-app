@@ -24,6 +24,8 @@ function ItemCard({ item }) {
         {item.price ? item.price.amounts.EUR : "Price Upon Request"}
       </div>
       <FavoriteButton
+        itemId={item.id}
+        isFavorite={item.isFavorite}
         style={{ margin: "2%", width: "10%", bottom: "0px", right: "0px" }}
       />
     </Link>

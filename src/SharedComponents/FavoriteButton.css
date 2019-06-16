@@ -1,0 +1,43 @@
+.favorite-button-wrapper {
+  position: absolute;
+}
+.favorite-button-wrapper:hover {
+  transform: scale(1.5);
+}
+
+.favorite-button {
+  background-color: grey;
+  display: inline-block;
+  height: 10px;
+  margin: 0 3px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 10px;
+}
+
+.favorite-button:before,
+.favorite-button:after {
+  background-color: grey;
+  content: "";
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.favorite-button:before {
+  top: -5px;
+  left: 0;
+}
+
+.favorite-button:after {
+  left: 5px;
+  top: 0;
+}
+
+.favorite-button-is-favorite,
+.favorite-button-is-favorite:after,
+.favorite-button-is-favorite:before {
+  background-color: #c3a758;
+}
