@@ -7,6 +7,7 @@ import Measurements from "./Measurements";
 import Description from "./Description";
 import Creators from "./Creators";
 import Loader from "../SharedComponents/Loader";
+import packagejson from "../../package.json";
 
 class Item extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class Item extends Component {
   }
 
   fetchPageShopItems() {
-    fetch(`http://localhost:3001/item/${this.props.match.params.id}`)
+    fetch(`${packagejson.proxy}/item/${this.props.match.params.id}`)
       .then(response => {
         if (response.ok) {
           return response.json();

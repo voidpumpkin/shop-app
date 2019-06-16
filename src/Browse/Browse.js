@@ -4,6 +4,7 @@ import ItemCardList from "./ItemCardList";
 import Pagination from "./Pagination";
 import Loader from "../SharedComponents/Loader";
 import "./Browse.css";
+import packagejson from "../../package.json";
 
 class Browse extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Browse extends Component {
   fetchPageShopItems() {
     let start = this.state.itemLimit * (this.state.currentPage - 1);
     fetch(
-      `http://localhost:3001/browse?start=${start}&limit=${this.state.itemLimit}`
+      `${packagejson.proxy}/browse?start=${start}&limit=${this.state.itemLimit}`
     )
       .then(response => {
         if (response.ok) {
