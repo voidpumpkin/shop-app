@@ -1,12 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const cachedItems = require('../data/items.json');
-const packagejson = require('../../package.json');
-//TODO: fix duplicate code corsOptions
-const corsOptions = {
-  origin: ["http://localhost:3000",packagejson.homepage],
-  optionsSuccessStatus: 200
-};
 
 const browseRouter = express.Router();
 
@@ -21,7 +15,7 @@ const getItems = function (payload) {
     };
 };
 
-browseRouter.get('', cors(corsOptions), (req, res)=>{
+browseRouter.get('', (req, res)=>{
     const response = getItems(req.query);
     res.status(200).json(response);
 });

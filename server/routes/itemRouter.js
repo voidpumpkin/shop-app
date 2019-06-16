@@ -1,13 +1,6 @@
 const express = require("express");
-const cors = require("cors");
 const cachedItems = require("../data/items.json");
-const packagejson = require("../../package.json");
 const fs = require('fs');
-//TODO: fix duplicate code corsOptions
-const corsOptions = {
-  origin: ["http://localhost:3000", packagejson.homepage],
-  optionsSuccessStatus: 200
-};
 
 const itemRouter = express.Router();
 
@@ -40,7 +33,7 @@ function setIsItemFavorite(itemId, isFavorite) {
   fs.writeFileSync("./server/data/favoriteItemIds.json", JSON.stringify(favoriteItemIds, null, 2));
 };
 
-itemRouter.get("/:id", cors(corsOptions), (req, res) => {
+itemRouter.get("/:id", (req, res) => {
   const id = req.params.id;
   const item = getItem(id);
   if (Object.keys(item).length == 0) {
@@ -50,7 +43,7 @@ itemRouter.get("/:id", cors(corsOptions), (req, res) => {
   }
 });
 
-itemRouter.put("/:id", cors(corsOptions), (req, res) => {
+itemRouter.put("/:id", (req, res) => {
   const id = req.params.id;
   const item = getItem(id);
   if (item.id) {
