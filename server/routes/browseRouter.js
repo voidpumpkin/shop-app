@@ -1,15 +1,12 @@
 const express = require("express");
-const fs = require("fs");
-const ITEMS_FILE_PATH = "./server/data/items.json";
+const itemFileAdapter = require("../db/itemFileAdapter.js");
 
 const browseRouter = express.Router();
 
 const getItems = function(payload) {
-  let fileRawData = fs.readFileSync(ITEMS_FILE_PATH);
-  let items = JSON.parse(fileRawData);
-  const start = Number.parseInt(payload.start) || 0;
-  const limit = Number.parseInt(payload.limit) || 9;
-  items = items.slice(start, start + limit);
+  const start = Number.parseInt(payload.start);
+  const limit = Number.parseInt(payload.limit);
+  let items = itemFileAdapter.getItems(start, limit);
   return {
     items: items,
     totalItems: items.length
