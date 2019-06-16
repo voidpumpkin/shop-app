@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import "./ItemCard.css";
+import FavoriteButton from "../SharedComponents/FavoriteButton";
 
 function ItemCard({ item }) {
   return (
-    <a
+    <Link
       id={`item-${item.id}-card`}
       className="browse-item-card gold-border"
-      href={`/item/${item.id}`}
+      to={`/item/${item.id}`}
     >
       <img
         id={`item-${item.id}-image`}
@@ -21,7 +23,10 @@ function ItemCard({ item }) {
       <div id="item-price" className="browse-item-card-price">
         {item.price ? item.price.amounts.EUR : "Price Upon Request"}
       </div>
-    </a>
+      <FavoriteButton
+        style={{ margin: "2%", width: "10%", bottom: "0px", right: "0px" }}
+      />
+    </Link>
   );
 }
 
