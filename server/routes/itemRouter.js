@@ -1,10 +1,11 @@
 const express = require("express");
 const fs = require("fs");
+const ITEMS_FILE_PATH = "./server/data/items.json";
 
 const itemRouter = express.Router();
 
 const getItem = function(itemId) {
-  let fileRawData = fs.readFileSync("./server/data/items.json");
+  let fileRawData = fs.readFileSync(ITEMS_FILE_PATH);
   let items = JSON.parse(fileRawData);
   return (
     items.find(function(item) {
@@ -14,10 +15,10 @@ const getItem = function(itemId) {
 };
 
 function mutateItemInFile(item) {
-  let fileRawData = fs.readFileSync("./server/data/items.json");
+  let fileRawData = fs.readFileSync(ITEMS_FILE_PATH);
   let items = JSON.parse(fileRawData);
   items = items.map(e => (e.id == item.id ? item : e));
-  fs.writeFileSync("./server/data/items.json", JSON.stringify(items));
+  fs.writeFileSync(ITEMS_FILE_PATH, JSON.stringify(items));
 }
 
 itemRouter.get("/:id", (req, res) => {
