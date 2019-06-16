@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cachedItems = require("../data/items.json");
 const packagejson = require("../../package.json");
-let favoriteItemIds = [];
+const fs = require('fs');
 //TODO: fix duplicate code corsOptions
 const corsOptions = {
   origin: ["http://localhost:3000", packagejson.homepage],
@@ -15,9 +15,29 @@ const getItem = function(itemId) {
   let item =
     cachedItems.find(function(item) {
       return item.id === itemId || item.integerId === itemId;
-    }) || {};
+    });
+  if(item){
+  let fileRawData = fs.readFileSync("./server/data/favoriteItemIds.json");
+  let favoriteItemIds = JSON.parse(fileRawData);
   item.isFavorite = favoriteItemIds.indexOf(itemId) == -1 ? false : true;
   return item;
+  } else {
+    return {};
+  }
+};
+
+function setIsItemFavorite(itemId, isFavorite) {
+  let fileRawData = fs.readFileSync("./server/data/favoriteItemIds.json");
+  let favoriteItemIds = JSON.parse(fileRawData);
+  if (isFavorite == "true") {
+    if (favoriteItemIds.indexOf(itemId) == -1) {
+      favoriteItemIds.push(itemId);
+    }
+  } else if (isFavorite == "false") {
+    favoriteItemIds.splice(favoriteItemIds.indexOf(itemId), 1);
+  }
+  console.log(isFavorite)
+  fs.writeFileSync("./server/data/favoriteItemIds.json", JSON.stringify(favoriteItemIds, null, 2));
 };
 
 itemRouter.get("/:id", cors(corsOptions), (req, res) => {
@@ -31,14 +51,11 @@ itemRouter.get("/:id", cors(corsOptions), (req, res) => {
 });
 
 itemRouter.put("/:id", cors(corsOptions), (req, res) => {
-  if (req.query.favorite == "true") {
-    favoriteItemIds.push(req.params.id);
-  } else if (req.query.favorite == "false") {
-    favoriteItemIds.splice(favoriteItemIds.indexOf(req.params.id), 1);
-  }
-
   const id = req.params.id;
   const item = getItem(id);
+  if (item.id) {
+    setIsItemFavorite(id, req.query.favorite);
+  }
   if (Object.keys(item).length == 0) {
     res.status(404).json(item);
   } else {
