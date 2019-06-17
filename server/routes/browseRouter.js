@@ -6,10 +6,11 @@ const browseRouter = express.Router();
 const getItems = function(payload) {
   const start = Number.parseInt(payload.start);
   const limit = Number.parseInt(payload.limit);
-  let items = itemFileAdapter.getItems(start, limit);
+  const items = itemFileAdapter.getItems(start, limit);
+  const totalItems = itemFileAdapter.getAllItems().length;
   return {
-    items: items,
-    totalItems: items.length
+    items,
+    totalItems
   };
 };
 
