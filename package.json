@@ -1,48 +1,48 @@
 {
-    "name": "1stdibs-front-end-quiz",
-    "version": "1.0.0",
-    "description": "1stdibs Front-end quiz based on React, Flux, Node",
-    "main": "src/index.js",
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "dev": "nodemon --watch server --verbose server/index.js",
-        "lint": "eslint src",
-        "format": "prettier --write \"src/**/*.js\""
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/1stdibs/front-end-quiz.git"
-    },
-    "keywords": [
-        "1stdibs",
-        "1stdibs.com",
-        "React",
-        "Node",
-        "Front-end quiz"
-    ],
-    "author": "1stdibs",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/1stdibs/front-end-quiz/issues"
-    },
-    "homepage": "https://julys321-shop-app.herokuapp.com",
-    "dependencies": {
-        "cors": "^2.8.5",
-        "express": "^4.16.3",
-        "normalize.css": "^8.0.1",
-        "query-string": "^5.1.1",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-router-dom": "^5.0.1",
-        "react-scripts": "1.1.4"
-    },
-    "devDependencies": {
-        "eslint-plugin-prettier": "^3.1.0",
-        "nodemon": "^1.17.5",
-        "prettier": "^1.18.2"
-    },
-    "proxy": "http://www.patogusauksas.lt:3001"
+  "name": "1stdibs-front-end-quiz",
+  "version": "1.0.0",
+  "description": "1stdibs Front-end quiz based on React, Flux, Node",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dev": "nodemon --watch server --verbose server/index.js",
+    "lint": "eslint src",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1stdibs/front-end-quiz.git"
+  },
+  "keywords": [
+    "1stdibs",
+    "1stdibs.com",
+    "React",
+    "Node",
+    "Front-end quiz"
+  ],
+  "author": "1stdibs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1stdibs/front-end-quiz/issues"
+  },
+  "homepage": "https://julys321-shop-app.herokuapp.com",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "normalize.css": "^8.0.1",
+    "query-string": "^5.1.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.17.5",
+    "prettier": "^1.18.2"
+  },
+  "proxy": "http://www.patogusauksas.lt:3001"
 }
