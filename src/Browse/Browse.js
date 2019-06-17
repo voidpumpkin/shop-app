@@ -37,14 +37,14 @@ class Browse extends Component {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(data =>
+      .then(data => {
         this.setState(state => ({
           shopItems: data.items,
           totalShopItems: data.totalItems,
           pageCount: Math.ceil(data.totalItems / state.itemLimit),
           isLoading: false
-        }))
-      )
+        }));
+      })
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
@@ -64,8 +64,10 @@ class Browse extends Component {
           </header>
           {this.state.isLoading ? (
             <Loader />
-          ) : (
+          ) : this.state.shopItems.length ? (
             <ItemCardList items={this.state.shopItems} />
+          ) : (
+            <p id="browse-item-list">This page has no items</p>
           )}
           <Pagination
             pageCount={this.state.pageCount}
