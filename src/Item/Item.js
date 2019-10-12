@@ -24,7 +24,7 @@ class Item extends Component {
   }
 
   fetchPageShopItems() {
-    fetch(`${packagejson.proxy}/item/${this.props.match.params.id}`)
+    fetch(`${packagejson.proxy}/api/item/${this.props.match.params.id}`)
       .then(response => {
         if (response.ok) {
           return response.json();

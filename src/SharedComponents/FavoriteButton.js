@@ -15,7 +15,7 @@ class FavoriteButton extends Component {
     e.preventDefault();
     this.setState({ isFavorite: !this.isFavorite() });
     fetch(
-      `${packagejson.proxy}/item/${this.props.itemId}?favorite=${!this.props
+      `${packagejson.proxy}/api/item/${this.props.itemId}?favorite=${!this.props
         .isFavorite}`,
       {
         method: "PUT"

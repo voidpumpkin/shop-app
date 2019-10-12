@@ -28,7 +28,7 @@ class Browse extends Component {
   fetchPageShopItems() {
     let start = this.state.itemLimit * (this.state.currentPage - 1);
     fetch(
-      `${packagejson.proxy}/browse?start=${start}&limit=${this.state.itemLimit}`
+      `${packagejson.proxy}/api/browse?start=${start}&limit=${this.state.itemLimit}`
     )
       .then(response => {
         if (response.ok) {
