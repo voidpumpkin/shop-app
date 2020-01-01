@@ -8,10 +8,12 @@ module.exports = {
     return items;
   },
 
-  getItems: function(start = 0, limit = 9) {
+  getItems: function(start, limit) {
+    const _start = start || 0;
+    const _limit = limit || 9;
     let fileRawData = fs.readFileSync(ITEMS_FILE_PATH);
     let items = JSON.parse(fileRawData);
-    items = items.slice(start, start + limit);
+    items = items.slice(_start, _start + _limit);
     return items;
   },
 

@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/1stdibs/front-end-quiz/issues"
   },
-  "homepage": "https://julys321-shop-app.herokuapp.com",
+  "homepage": "https://shopapp.juliuslungys.dev",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.3",
@@ -44,7 +44,7 @@
     "nodemon": "^1.17.5",
     "prettier": "^1.18.2"
   },
-  "proxy": "http://78.60.167.233",
+  "proxy": "https://shopapp.juliuslungys.dev/api",
   "browserslist": {
     "production": [
       ">0.2%",
